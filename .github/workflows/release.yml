@@ -9,19 +9,23 @@ jobs:
     environment: Compile
     steps:
       - name: 📦 Prepate Git Repo
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
 
-      - name: ☕ Install OpenJDK
-        uses: AdoptOpenJDK/install-jdk@v1.1.1
+      - name: ☕ Install Java
+        uses: actions/setup-java@v3
         with:
-          version: '11'
           architecture: x64
+          cache: maven
+          distribution: temurin
+          java-version: 11
 
-      - name: 📚 Install jpackage
-        uses: AdoptOpenJDK/install-jdk@v1.1.1
+      - name: ☕ Install Java
+        uses: actions/setup-java@v3
         with:
-          version: '15'
           architecture: x64
+          cache: maven
+          distribution: temurin
+          java-version: 15
 
       - name: 📦 Build with Maven
         run: mvn -B package --file pom.xml
@@ -30,7 +34,7 @@ jobs:
         run: sh ./build.sh
 
       - name: 🚀 Deploy Installer to Releases
-        uses: AButler/upload-release-assets@v2.0
+        uses: AButler/upload-release-assets@v2.0.2
         with:
           files: 'rexedia-*.exe'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -53,13 +57,13 @@ jobs:
           path: rexedia
 
       - name: 📦 Zip file
-        uses: papeloto/action-zip@v1
+        uses: papeloto/action-zip@v1.1
         with:
           files: rexedia
           dest: rexedia.zip
 
       - name: 🚀 Deploy Binaries to Releases
-        uses: AButler/upload-release-assets@v2.0
+        uses: AButler/upload-release-assets@v2.0.2
         with:
           files: 'rexedia.zip'
           repo-token: ${{ secrets.GITHUB_TOKEN }}

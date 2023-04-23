@@ -63,7 +63,7 @@ final class CommandExecutor {
 
         String result;
 
-        executor.setWatchdog(new ExecuteWatchdog(30 * 1000));
+        executor.setWatchdog(new ExecuteWatchdog(120 * 1000));
         executor.setStreamHandler(new PumpStreamHandler(OUT));
         try{
             executor.execute(cmd);

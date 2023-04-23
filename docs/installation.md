@@ -1,8 +1,3 @@
----
-title: Installation
-description: Setup guide for the Rexedia executable.
----
-
 # Local Installation
 
 The latest stable release can be found in releases:

@@ -1,8 +1,3 @@
----
-title: Arguments
-description: Command line arguments and parameters for Rexedia.
----
-
 # Required Arguments
 
 In order to format files Rexedia requires at least one **input** and a **format** or **preset**.

@@ -1,8 +1,3 @@
----
-title: Presets
-description: Preset usage and examples for Rexedia.
----
-
 # Presets
 
 If a preset is specified as an [arguments](https://github.com/Ktt-Development/rexedia/blob/main/docs/arguments.md) then the cover art, metadata, and output fields will be ignored. Only a single preset file can be used.

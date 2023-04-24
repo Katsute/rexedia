@@ -17,15 +17,7 @@ jobs:
           architecture: x64
           cache: maven
           distribution: temurin
-          java-version: 11
-
-      - name: ☕ Install Java
-        uses: actions/setup-java@v3
-        with:
-          architecture: x64
-          cache: maven
-          distribution: temurin
-          java-version: 15
+          java-version: 17
 
       - name: 📦 Build with Maven
         run: mvn -B package --file pom.xml

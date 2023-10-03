@@ -42,7 +42,7 @@ public class ffmpegTests {
     }
 
     @TempDir
-    public final File dir = new File(String.valueOf(UUID.randomUUID()));
+    public File dir = new File(String.valueOf(UUID.randomUUID()));
 
     @Test
     public void testVerify(){

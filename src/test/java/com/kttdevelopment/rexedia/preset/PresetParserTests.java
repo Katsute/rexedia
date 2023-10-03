@@ -13,7 +13,7 @@ import java.util.regex.PatternSyntaxException;
 public class PresetParserTests {
 
     @TempDir
-    public final File dir = new File(String.valueOf(UUID.randomUUID()));
+    public File dir = new File(String.valueOf(UUID.randomUUID()));
 
     @Test
     public void testFile() throws IOException{

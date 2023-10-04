@@ -1,8 +1,11 @@
 name: CodeQL
+
 on:
-  push: {}
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, reopened, synchronize]
 
 jobs:
   codeql:
@@ -10,24 +13,24 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event == 'pull_request' || github.actor != 'dependabot[bot]'
     steps:
-      - name: 📤 Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 📚 Install CodeQL
+      - name: Install CodeQL
         uses: github/codeql-action/init@v2
         with:
           languages: java
 
-      - name: ☕ Install Java
+      - name: Install Java
         uses: actions/setup-java@v3
         with:
           architecture: x64
           cache: maven
           distribution: temurin
-          java-version: 11
+          java-version: 17
 
-      - name: 📦 Compile with Maven
+      - name: Compile with Maven
         run: mvn compile -Dmaven.test.skip=true --no-transfer-progress
 
-      - name: ✔ Perform CodeQL Analysis
+      - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2

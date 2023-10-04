@@ -5,13 +5,13 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: windows-2019
+    runs-on: windows-latest
     environment: Compile
     steps:
-      - name: 📦 Prepate Git Repo
+      - name: Prepate Git Repo
         uses: actions/checkout@v4
 
-      - name: ☕ Install Java
+      - name: Install Java
         uses: actions/setup-java@v3
         with:
           architecture: x64
@@ -19,19 +19,19 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: 📦 Build with Maven
+      - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-      - name: 📦 Compile to exe
+      - name: Compile to exe
         run: sh ./build.sh
 
-      - name: 🚀 Deploy Installer to Releases
+      - name: Deploy Installer to Releases
         uses: AButler/upload-release-assets@v2.0.2
         with:
           files: 'rexedia-*.exe'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 📦 Upload artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: rexedia
@@ -42,19 +42,19 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: 📦 Download Artifact
+      - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
           name: rexedia
           path: rexedia
 
-      - name: 📦 Zip file
+      - name: Zip file
         uses: papeloto/action-zip@v1.1
         with:
           files: rexedia
           dest: rexedia.zip
 
-      - name: 🚀 Deploy Binaries to Releases
+      - name: Deploy Binaries to Releases
         uses: AButler/upload-release-assets@v2.0.2
         with:
           files: 'rexedia.zip'

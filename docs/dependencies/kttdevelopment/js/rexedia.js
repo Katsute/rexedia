@@ -46,7 +46,6 @@ $(document).ready(function(){
     test();
 });
 
-
 function validateRegex(e) {
     const target = e.target ? e.target : $(e)[0];
     const regex = target.value;

@@ -1,25 +1,29 @@
 name: Java CI
+
 on:
-  push: {}
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, reopened, synchronize]
+
 permissions: read-all
 
 jobs:
   java_ci:
     name: Java CI
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
-      - name: 📤 Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: ☕ Install Java
+      - name: Install Java
         uses: actions/setup-java@v3
         with:
           architecture: x64
           cache: maven
           distribution: temurin
-          java-version: 11
+          java-version: 17
 
-      - name: ✔ Test with Maven
+      - name: Test with Maven
         run: mvn test -fae --no-transfer-progress

@@ -3,7 +3,7 @@ updates:
 - package-ecosystem: github-actions
   directory: /
   labels: []
-  reviewers: [Katsute]
+  assignees: [Katsute]
   schedule:
     interval: weekly
     day: monday
@@ -14,7 +14,7 @@ updates:
 - package-ecosystem: maven
   directory: /
   labels: []
-  reviewers: [Katsute]
+  assignees: [Katsute]
   schedule:
     interval: weekly
     day: monday

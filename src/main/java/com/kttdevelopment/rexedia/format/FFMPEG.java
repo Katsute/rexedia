@@ -46,8 +46,6 @@ public final class FFMPEG {
 
         final String[] args = new String[]{
             "-i", '"' + input.getAbsolutePath() + '"',
-            "-map", "0:v:0", // copy video track
-            "-c", "copy", // copy codec
             "-f", "null -" // destroy output
         };
 

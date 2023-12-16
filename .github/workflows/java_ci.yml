@@ -23,7 +23,7 @@ jobs:
           architecture: x64
           cache: maven
           distribution: temurin
-          java-version: 17
+          java-version: 21
 
       - name: Test with Maven
         run: mvn test -fae --no-transfer-progress

@@ -27,7 +27,7 @@ jobs:
           architecture: x64
           cache: maven
           distribution: temurin
-          java-version: 17
+          java-version: 21
 
       - name: Compile with Maven
         run: mvn compile -Dmaven.test.skip=true --no-transfer-progress

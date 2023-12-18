@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: java
 
@@ -33,4 +33,4 @@ jobs:
         run: mvn compile -Dmaven.test.skip=true --no-transfer-progress
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3

@@ -49,7 +49,7 @@ jobs:
           path: rexedia
 
       - name: Zip file
-        uses: papeloto/action-zip@v1.1
+        uses: papeloto/action-zip@v1.2
         with:
           files: rexedia
           dest: rexedia.zip

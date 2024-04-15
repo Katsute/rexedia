@@ -26,7 +26,7 @@ jobs:
         run: sh ./build.sh
 
       - name: Deploy Installer to Releases
-        uses: AButler/upload-release-assets@v2.0.2
+        uses: AButler/upload-release-assets@v3.0
         with:
           files: 'rexedia-*.exe'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -55,7 +55,7 @@ jobs:
           dest: rexedia.zip
 
       - name: Deploy Binaries to Releases
-        uses: AButler/upload-release-assets@v2.0.2
+        uses: AButler/upload-release-assets@v3.0
         with:
           files: 'rexedia.zip'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
